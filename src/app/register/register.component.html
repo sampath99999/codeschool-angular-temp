@@ -1,0 +1,28 @@
+<form class="d-flex align-items-center justify-content-center flex-column" [formGroup]="form" (submit)="register()">
+  <h3>Sign In</h3>
+  <div class="mb-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="full_name" placeholder="Your Name" required minlength="3"
+        maxlength="25" formControlName="full_name">
+      <label for="full_name">Full Name</label>
+      <p *ngIf="isFieldInvalid('full_name')" class="text-danger">{{getErrorMessage('full_name','Full Name')}}</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="username" placeholder="Your Username" formControlName="username"
+        required minlength="3" maxlength="25">
+      <label for="username">Username</label>
+      <p *ngIf="isFieldInvalid('username')" class="text-danger">{{getErrorMessage('username','Username')}}</p>
+    </div>
+  </div>
+  <div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password" placeholder="Your Password" formControlName="password"
+        required minlength="8" maxlength="25">
+      <label for="password">Password</label>
+      <p *ngIf="isFieldInvalid('password')" class="text-danger">{{getErrorMessage('password','Password')}}</p>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3">Register</button>
+</form>

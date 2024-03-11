@@ -1,0 +1,23 @@
+<form (ngSubmit)="login()" class="d-flex align-items-center justify-content-center flex-column"
+      [formGroup]="loginFormGroup">
+  <h3>Sign In</h3>
+  <div class="mb-3">
+    <div class="form-floating">
+      <input type="text" class="form-control" id="username" placeholder="Your Username" formControlName="username">
+      <label for="username">Username</label>
+    </div>
+    @if (isFieldInvalid("username")) {
+      <small class="text-danger m-0">{{ getErrorMessage("username", "Username") }}</small>
+    }
+  </div>
+  <div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password" placeholder="Your Password" formControlName="password">
+      <label for="password">Password</label>
+    </div>
+    @if (isFieldInvalid("password")) {
+      <small class="text-danger m-0">{{ getErrorMessage("password", "Password") }}</small>
+    }
+  </div>
+  <button class="btn btn-primary mt-3">Login</button>
+</form>
